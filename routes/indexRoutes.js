@@ -15,7 +15,11 @@ const messages = [
 ];
 
 indexRouter.get('/', (req, res) => {
-  res.send('Index')
+  res.render('index', { title: "Message Board", messages: messages })
+})
+
+indexRouter.get('/new', (req, res) =>{
+  res.render('form')
 })
 
 module.exports = indexRouter
