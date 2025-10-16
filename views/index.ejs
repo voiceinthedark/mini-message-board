@@ -8,9 +8,12 @@
 </head>
 
 <body>
-    <h1><%= title %></h1>
+  <h1>
+    <%= title %>
+  </h1>
+  <a href="/new">Add new message</a>
 
-  <% messages.forEach(message => { %>
+  <% messages.forEach(message=> { %>
     <h2>
       <%= message.user %>
     </h2>
@@ -20,6 +23,7 @@
     <p>
       <%= message.text %>
     </p>
+    <a href="/messages/<%= message.id %>">View message</a>
     <% }) %>
 
 </body>
