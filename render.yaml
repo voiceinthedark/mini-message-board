@@ -9,4 +9,4 @@ services:
     branch: main
     buildCommand: npm install
     startCommand: npm run start
-    autoDeployTrigger: 'off'
+    autoDeployTrigger: 'commit'
