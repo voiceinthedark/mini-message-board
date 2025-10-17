@@ -1,0 +1,12 @@
+
+services:
+  - type: web
+    runtime: node
+    name: mini-message-board
+    repo: https://github.com/voiceinthedark/mini-message-board
+    region: frankfurt
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeployTrigger: 'off'
