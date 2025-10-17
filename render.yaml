@@ -8,5 +8,5 @@ services:
     plan: free
     branch: main
     buildCommand: npm install
-    startCommand: npm start
+    startCommand: npm run start
     autoDeployTrigger: 'off'

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev:start": "nodemon app",
-    "dev:watch": "noe --watch app.js"
+    "dev:watch": "node --watch app.js",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
