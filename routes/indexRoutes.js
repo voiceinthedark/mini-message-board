@@ -34,5 +34,9 @@ indexRouter.post('/new', (req, res) => {
   res.redirect('/')
 })
 
+indexRouter.use((req, res) => {
+  res.status(404).render('404', { title: "404: Page Not Found" })
+})
 
-module.exports = { indexRouter, messages}
+
+module.exports = { indexRouter, messages }
