@@ -2,3 +2,18 @@ GET http://localhost:5000/
 
 ###
 GET http://localhost:5000/nonexistent
+
+###
+POST http://localhost:5000/new
+constent-type: application/json
+
+{
+  name: "Alice",
+  text: "Hello, world!"
+}
+
+### 
+GET http://localhost:5000/new
+
+### 
+GET http://localhost:5000/messages/1

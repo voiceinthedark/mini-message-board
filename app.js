@@ -18,6 +18,11 @@ app.use('/messages', messageRouter)
 // PORT
 const PORT = process.env.PORT || 5000
 
+app.use((error, req, res, next) => {
+  console.error(error.stack)
+  res.status(500).render('500', { title: "500: Internal Server Error" })
+})
+
 // Start server on port
 app.listen(PORT, (error) => {
   if (error) console.error(error.message);

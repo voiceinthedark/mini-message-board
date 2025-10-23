@@ -1,4 +1,6 @@
-const express = require('express')
+const express = require('express');
+const PageNotFoundError = require('../errors/PageNotFoundError');
+const { body, validationResult } = require('express-validator')
 const indexRouter = express.Router()
 
 const messages = [
@@ -25,17 +27,23 @@ indexRouter.get('/new', (req, res) => {
 })
 
 indexRouter.post('/new', (req, res) => {
+  body('name').trim().isLength({ min: 1}).withMessage('Name is required').run(req)
+
   const user = req.body.name
   const text = req.body.text
   const added = new Date()
+
 
   messages.push({ id: messages[messages.length - 1].id + 1, user, text, added })
 
   res.redirect('/')
 })
 
-indexRouter.use((req, res) => {
-  res.status(404).render('404', { title: "404: Page Not Found" })
+indexRouter.get('/*splat', (req, res, next) => {
+  if (req.params.splat.includes('messages')) {
+    return next()
+  }
+  throw new PageNotFoundError('Page Not Found')
 })
 
 
