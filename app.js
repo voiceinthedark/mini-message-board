@@ -1,13 +1,20 @@
+const dotenv = require('dotenv')
 const path = require('node:path')
 const express = require('express')
 const app = express()
 
+// Load environment variables from .env file
+dotenv.config()
+
 const { indexRouter } = require('./routes/indexRoutes')
 const messageRouter = require('./routes/messageRouter')
 
+// Set the view engine to EJS
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
+
+// Setup middlewares
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 

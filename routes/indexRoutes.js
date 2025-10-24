@@ -1,7 +1,8 @@
 const express = require('express');
+const indexRouter = express.Router()
 const PageNotFoundError = require('../errors/PageNotFoundError');
 const { body, validationResult } = require('express-validator')
-const indexRouter = express.Router()
+const indexController = require('../controllers/indexController')
 
 const messages = [
   {
@@ -18,9 +19,7 @@ const messages = [
   }
 ];
 
-indexRouter.get('/', (req, res) => {
-  res.render('index', { title: "Message Board", messages: messages })
-})
+indexRouter.get('/', indexController.getIndex)
 
 indexRouter.get('/new', (req, res) => {
   res.render('form')

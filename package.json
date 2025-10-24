@@ -6,7 +6,8 @@
   "scripts": {
     "dev:start": "nodemon app",
     "dev:watch": "node --watch app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "populate-db": "node ./db/populatedb.js"
   },
   "keywords": [],
   "author": "",
